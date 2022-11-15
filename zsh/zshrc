@@ -129,5 +129,6 @@ zinit light zsh-users/zsh-completions
 ### Alias
 alias bat='batcat'
 alias ls='lsd'
+alias nvim='lvim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
