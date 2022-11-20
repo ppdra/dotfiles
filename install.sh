@@ -1,16 +1,8 @@
 #!/bin/bash
 
 
-
-sudo apt update -y
-sudo apt upgrade -y
-
-sudo apt install git -y 
-sudo apt install curl -y
-
-
 # Install zsh
-sudo apt install zsh -y
+sudo pacman -S zsh
 
 # Install OhMyZsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -25,32 +17,11 @@ bash -c "$(curl --fail --show-error --silent --location https://raw.githubuserco
 
 # update config do zshrc (configs do terminal)
 cp zshrc ~/.zshrc
-cp robbyrussell.zsh-theme ~/.oh-my-zsh/themes
+cp p10k.zsh ~/.p10k.zsh
 
-
-
-#!/bin/bash
-
-sudo apt install npm -y
 
 # Install nvim 
-sudo cp nvim/nvim /usr/bin
-
-mkdir ~/.config/nvim
-cp init.vim ~/.config/nvim
-
-
-# Install node
-sudo cp nvim/node /usr/bin
-
-
-# Coc Build
-cd ~/.local/share/nvim/plugged/coc.nvim
-sudo npm install -g yarn
-yarn install 
-yarn build
-
-pip3 install jedi
+sudo pacman -S neovim
 
 # Font for nvim 
 sudo mkdir /usr/share/fonts/nerdfonts
