@@ -1,0 +1,85 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: FontAwesome;
+    font-size: 14px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #3b4252;
+    color: white;
+}
+
+#workspaces {
+	background-color: #4c566a;
+	margin: 5px;
+	border-radius: 20px;
+}
+#workspaces button {
+    padding: 0 10px;
+    color: #eceff4;
+    border-radius: 10px;
+}
+
+#workspaces button.active {
+    color: #000000;
+    
+    
+}
+
+#custom-firefox,
+#custom-youtube,
+#custom-twitch,
+#custom-chatgpt,
+#custom-vscode,
+#cpu,
+#disk,
+#clock,
+#pulseaudio,
+#network {
+	background-color: #4c566a;
+	padding: 0px 10px;
+	margin: 5px 0px;
+    color: #eceff4;
+}
+
+#custom-firefox {
+    margin-left: 5px;
+    border-radius: 5px 0px 0px 5px;
+    
+}
+
+#custom-chatgpt {
+    margin-right: 10px;
+    border-radius: 0px 5px 5px 0px;
+    padding-right: 15px;
+}
+
+#cpu {
+    margin-left: 50px;
+    border-radius: 5px 0px 0px 5px;
+    color: #55b6c2;
+}
+
+#disk {
+    margin-right: 5px;
+    border-radius: 0px 5px 5px 0px;
+    color: #C778DD
+}
+
+#pulseaudio {
+    margin-left: 5px;
+    border-radius: 5px 0px 0px 5px;
+    color: #e5c07a;
+}
+
+#network {
+    color: #d282e7;
+}
+
+#clock {
+    margin-right: 5px;
+    border-radius: 0px 5px 5px 0px;
+    color: #ea757e;
+}

@@ -1,0 +1,91 @@
+{
+  "position":"top",
+  "height":40,
+  "modules-left":["custom/firefox","custom/youtube","custom/twitch","custom/vscode",  "custom/chatgpt","cpu", "disk"],
+  "modules-center":["hyprland/workspaces"],
+  "modules-right":["pulseaudio","network","clock"],
+
+// Modules configs
+  "hyprland/workspaces":{
+    "on-click":"activate",
+    "active-only":false,
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format":"{icon}",
+    "persistent_workspaces":{
+      "1":[],
+      "2":[],
+      "3":[]
+    },
+      "format-icons":{
+      "1":"●",
+      "2":"●",
+      "3":"●",
+    }
+  },
+  "clock":{
+    "format": "󰅐 {:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "pulseaudio":{
+    "format":"  {volume}%",
+    "on-click":"pavucontrol"
+  },
+	"network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "  {ipaddr}",    
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󰤮 Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+	},
+
+  "cpu":{
+    "format":"  {usage}%"
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": " {percentage_used}%",
+    "path": "/",
+    "on-click": "alacritty -e htop",
+    "tooltip":"free space {free}"
+    },
+
+
+// Custom modules 
+  "custom/youtube": {
+    "format":"",
+    "on-click":"google-chrome-stable https://youtube.com",
+    "on-click-right": "google-chrome-stable --new-window https://youtube.com",
+    "tooltip":false
+  },
+  "custom/chatgpt": {
+    "format":"",
+    "on-click":"firefox https://chat.openai.com/",
+    "on-click-right":"firefox --new-window https://chat.openai.com/",
+    "tooltip":false
+  },
+"custom/twitch": {
+    "format":"",
+    "on-click":"google-chrome-stable https://twitch.tv/",
+    "on-click-right":"google-chrome-stable --new-window https://twitch.tv",
+    "tooltip":false
+  },
+
+"custom/vscode": {
+  "format":"",
+  "on-click":"code",
+  "tooltip":false
+
+},
+"custom/firefox": {
+    "format":"",
+    "on-click":"firefox google.com",
+    "on-click-right":"firefox --new-window google.com"
+  }
+
+
+
+
+}
