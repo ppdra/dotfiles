@@ -61,5 +61,6 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+
 }
 return plugins
