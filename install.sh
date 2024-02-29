@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-
+# este script esta desatualizado, serve como referencia, 
+# TODO corrigir este script
 
 
 programas=(zsh git kitty)
