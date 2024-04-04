@@ -1,50 +1,49 @@
 #!/bin/bash
 
-#
-#
-#
-#
-#
+# This simple script checks if any Docker container is running. If only one container is running, it will enter that container directly. If there are multiple containers running, it will display options to choose which container to enter.
 
-
-# Get containers id and names
+# Get container IDs and names
 container_info=$(docker ps --format "{{.ID}} {{.Names}}")
 
-# Check if has container running
+# Check if there are any running containers
 if [ -z "$container_info" ]; then
-    echo "Não há contêineres em execução."
+    echo "No Docker containers are currently running."
     exit 1
 fi
 
-# Modify string to array
+# Convert string to array
 readarray -t containers <<<"$container_info"
 
+# If only one container is running, enter that container directly
+if [[ "${#containers[@]}" -eq 1 ]]; then
+  container_id=$(echo ${containers} | awk '{print $1 }')
+  docker exec -it $container_id /bin/bash
+  exit 0
+fi 
 
 counter=1
 
+# Display options to choose from if multiple containers are running
 for container in "${containers[@]}"; do
-  # Get containers id
+  # Display container IDs and names
   echo "$counter - $container"
 
   ((counter++))
 done
 
-# Get user option
-echo "Select container"
+# Prompt the user to select a container
+echo -e "\n Select a container"
 read -p "-> " choice
 
-# Check if user choices is valid
+# Check if the user's choice is valid
 if (( choice < 1 || choice >= counter)); then
   echo "Invalid option"
   exit 1
 fi
 
-# Get the selected ID 
+# Get the ID of the selected container
 selected_id=$(echo "${containers[$((choice - 1))]}" | awk '{print $1}' )
 
-
+# Enter the selected container
 docker exec -it $selected_id /bin/bash
-
-
-
 
