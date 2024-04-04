@@ -1,0 +1,50 @@
+#!/bin/bash
+
+#
+#
+#
+#
+#
+
+
+# Get containers id and names
+container_info=$(docker ps --format "{{.ID}} {{.Names}}")
+
+# Check if has container running
+if [ -z "$container_info" ]; then
+    echo "Não há contêineres em execução."
+    exit 1
+fi
+
+# Modify string to array
+readarray -t containers <<<"$container_info"
+
+
+counter=1
+
+for container in "${containers[@]}"; do
+  # Get containers id
+  echo "$counter - $container"
+
+  ((counter++))
+done
+
+# Get user option
+echo "Select container"
+read -p "-> " choice
+
+# Check if user choices is valid
+if (( choice < 1 || choice >= counter)); then
+  echo "Invalid option"
+  exit 1
+fi
+
+# Get the selected ID 
+selected_id=$(echo "${containers[$((choice - 1))]}" | awk '{print $1}' )
+
+
+docker exec -it $selected_id /bin/bash
+
+
+
+
