@@ -30,6 +30,13 @@ function sync ()
     git commit -m "SCRIPT AUTO SYNC"
     git push
     exit 0
+  
+  else
+
+    echo "Not did anything"
+    date >> $base_dir/sync_logs.md 
+    exit 0
+
   fi
 }
 
