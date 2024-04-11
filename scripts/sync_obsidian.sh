@@ -33,7 +33,7 @@ function sync ()
   
   else
 
-    echo "Not did anything"
+    echo "Not did anything" >> $base_dir/sync_logs.md
     date >> $base_dir/sync_logs.md 
     exit 0
 
