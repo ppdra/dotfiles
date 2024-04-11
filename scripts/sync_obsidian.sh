@@ -16,7 +16,8 @@ function sync ()
     date >> $base_dir/sync_logs.md
     echo ""
 
-    git pull 
+    git pull
+    exit 0
 
   elif [[ -n $(git diff) ]]; then
     
@@ -28,7 +29,7 @@ function sync ()
     git add .
     git commit -m "SCRIPT AUTO SYNC"
     git push
-
+    exit 0
   fi
 }
 
