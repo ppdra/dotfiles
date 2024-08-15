@@ -140,6 +140,10 @@ alias ls='lsd'
 alias sail='./vendor/bin/sail'
 alias sup='sail up -d'
 alias sd='sail down'
+alias dup='docker compose up -d'
+alias dcd='docker compose down'
+alias spa='sail php artisan'
+alias pa='php artisan'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
